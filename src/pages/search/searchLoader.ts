@@ -1,6 +1,13 @@
 import { searchPackages } from '../../api/queries/searchPackages.ts';
-
-export async function searchLoader({ request }: { request: Request }) {
+import type { PackageSummary } from '../../api/types/packageSummary.ts';
+export interface SearchLoaderResult {
+  searchResults: PackageSummary[];
+}
+export async function searchLoader({
+  request,
+}: {
+  request: Request;
+}): Promise<SearchLoaderResult> {
   const { searchParams } = new URL(request.url);
   const term = searchParams.get('term');
   if (!term) throw new Error('Search term is required');
