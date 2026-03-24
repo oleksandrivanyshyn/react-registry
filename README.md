@@ -14,7 +14,6 @@ A React application for searching, discovering, and viewing details about packag
 * **Frontend:** React, TypeScript, Vite
 * **Routing:** React Router DOM
 * **Styling:** CSS / Tailwind (configured via PostCSS)
-* **Code Quality:** ESLint, Prettier
 
 ## 📦 Getting Started
 
