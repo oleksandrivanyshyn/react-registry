@@ -16,6 +16,15 @@ const router = createBrowserRouter([
       {
         path: '/search',
         element: <SearchPage />,
+        loader: async ({ request }) => {
+          const url = new URL(request.url);
+          const term = url.searchParams.get('term');
+          const res = await fetch(
+            `https://registry.npmjs.org/-/v1/search?text=${term}`,
+          );
+          const data = await res.json();
+          return data.objects;
+        },
       },
       {
         path: '/packages/:name',
