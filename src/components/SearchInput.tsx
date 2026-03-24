@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
 import * as React from 'react';
+import { VscSearch } from 'react-icons/vsc';
 
 const SearchInput = () => {
   const [term, setTerm] = useState('');
@@ -14,12 +15,17 @@ const SearchInput = () => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <input
-          value={term}
-          onChange={(e) => setTerm(e.target.value)}
-          name="term"
-          placeholder="Search"
-        />
+        <div className="relative">
+          <div className="absolute inset-y-0 flex items-center pl-3">
+            <VscSearch className="h-5 w-5 text-gray-500" />
+          </div>
+          <input
+            value={term}
+            onChange={(e) => setTerm(e.target.value)}
+            placeholder="Search packages"
+            className="pl-10 py-2 w-full border-0 shadow-none"
+          />
+        </div>
       </form>
     </div>
   );
